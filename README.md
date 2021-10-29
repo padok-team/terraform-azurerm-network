@@ -11,16 +11,10 @@ Terraform module which creates the following resources on **AZURE**:
 ## Usage
 
 ```hcl
-module "resource_group" {
-  source   = "git@github.com:padok-team/terraform-azurerm-resource-group.git?ref=v0.0.2"
-  name     = "example_rg"
-  location = "West Europe"
-}
-
 module "network" {
   source = "git@github.com:padok-team/terraform-azurerm-network.git?ref=v0.0.1"
 
-  resource_group     = module.resource_group.this
+  resource_group     = "my-rg-name"
   vnet_name          = "example_vnet"
   vnet_address_space = ["10.0.0.0/8"]
   subnets = {
@@ -33,8 +27,7 @@ module "network" {
 
 ## Examples
 
-- [Example of use case](examples/example_of_use_case/main.tf)
-- [Example of other use case](examples/example_of_other_use_case/main.tf)
+- [Creation of a virtual network and 3 subnets](examples/main.tf)
 
 <!-- BEGIN_TF_DOCS -->
 ## Modules

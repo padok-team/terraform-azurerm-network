@@ -1,3 +1,18 @@
+# This example creates a virtual network with 3 subnets.
+terraform {
+  required_version = ">= 0.13.0"
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">=2.82.0"
+    }
+  }
+}
+provider "azurerm" {
+  # Whilst version is optional, we /strongly recommend/ using it to pin the version of the Provider being used
+  features {}
+}
+
 module "resource_group" {
   source   = "git@github.com:padok-team/terraform-azurerm-resource-group.git?ref=v0.0.2"
   name     = "example_rg"
@@ -5,7 +20,7 @@ module "resource_group" {
 }
 
 module "network" {
-  source = "git@github.com:padok-team/terraform-azurerm-network.git?ref=v0.0.1"
+  source = "./.."
 
   resource_group     = module.resource_group.this
   vnet_name          = "example_vnet"

@@ -21,7 +21,7 @@ module "resource_group" {
 
 module "log_analytics_workspace" {
   source = "git@github.com:padok-team/terraform-azurerm-diagnostic-settings.git?ref=v0.0.2"
-  
+
   resource_group_name     = module.resource_group.this.name
   resource_group_location = module.resource_group.this.location
 
@@ -41,6 +41,6 @@ module "network" {
     "subnet3" = "10.2.0.0/16",
   }
 
-  logs_enabled = true
+  logs_enabled               = true
   log_analytics_workspace_id = module.log_analytics_workspace.azurerm_log_analytics_workspace_id
 }

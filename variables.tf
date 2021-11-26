@@ -14,6 +14,13 @@ variable "vnet_address_space" {
   description = "The address space that is used the virtual network. You can supply more than one address space."
   type        = list(string)
 }
+
+variable "dns_servers" {
+  description = "DNS servers associated with the virtual network."
+  type        = list(string)
+  default     = null
+}
+
 variable "subnets" {
   description = "A map of subnets with their CIDR block"
   type        = map(string)
@@ -40,5 +47,11 @@ variable "storage_account_id" {
 variable "eventhub_authorization_rule_id" {
   description = "ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data."
   type        = string
+  default     = null
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to the resource."
+  type        = map(string)
   default     = null
 }

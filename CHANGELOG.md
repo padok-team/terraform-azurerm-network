@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/padok-team/terraform-azurerm-network/compare/v0.0.3...v0.0.4) (2021-11-26)
+
+
+### Features
+
+* **dns:** add support for dns servers ([fe14d98](https://github.com/padok-team/terraform-azurerm-network/commit/fe14d98320a00e3d24cbf83741888548ab122215))
+
 ### [0.0.3](https://github.com/padok-team/terraform-azurerm-network/compare/v0.0.2...v0.0.3) (2021-11-26)
 
 

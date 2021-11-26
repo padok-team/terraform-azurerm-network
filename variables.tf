@@ -18,3 +18,27 @@ variable "subnets" {
   description = "A map of subnets with their CIDR block"
   type        = map(string)
 }
+
+variable "logs_enabled" {
+  description = "Should the log export with DiagnosticSetting be enabled ?"
+  type        = bool
+  default     = false
+}
+
+variable "log_analytics_workspace_id" {
+  description = "The ID of the log analytics workspace where to export logs."
+  type        = string
+  default     = null
+}
+
+variable "storage_account_id" {
+  description = "The ID of the storage account where to export logs."
+  type        = string
+  default     = null
+}
+
+variable "eventhub_authorization_rule_id" {
+  description = "ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data."
+  type        = string
+  default     = null
+}

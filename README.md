@@ -36,8 +36,8 @@ module "network" {
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_subnet"></a> [subnet](#module\_subnet) | git@github.com:padok-team/terraform-azurerm-subnet.git | v0.0.1 |
-| <a name="module_virtual_network"></a> [virtual\_network](#module\_virtual\_network) | git@github.com:padok-team/terraform-azurerm-virtual-network.git | v0.0.1 |
+| <a name="module_subnet"></a> [subnet](#module\_subnet) | git@github.com:padok-team/terraform-azurerm-subnet.git | v0.0.2 |
+| <a name="module_virtual_network"></a> [virtual\_network](#module\_virtual\_network) | git@github.com:padok-team/terraform-azurerm-virtual-network.git | v0.0.2 |
 
 ## Inputs
 

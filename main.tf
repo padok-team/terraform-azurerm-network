@@ -1,5 +1,5 @@
 module "virtual_network" {
-  source = "git@github.com:padok-team/terraform-azurerm-virtual-network.git?ref=v0.0.1"
+  source = "git@github.com:padok-team/terraform-azurerm-virtual-network.git?ref=v0.0.2"
 
   name                = var.vnet_name
   resource_group_name = var.resource_group.name
@@ -8,7 +8,7 @@ module "virtual_network" {
 }
 
 module "subnet" {
-  source               = "git@github.com:padok-team/terraform-azurerm-subnet.git?ref=v0.0.1"
+  source               = "git@github.com:padok-team/terraform-azurerm-subnet.git?ref=v0.0.2"
   for_each             = var.subnets
   name                 = each.key
   address_prefixes     = [each.value]

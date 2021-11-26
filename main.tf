@@ -5,6 +5,9 @@ module "virtual_network" {
   resource_group_name = var.resource_group.name
   location            = var.resource_group.location
   address_space       = var.vnet_address_space
+  dns_servers         = var.dns_servers
+
+  tags = var.tags
 }
 
 module "subnet" {

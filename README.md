@@ -7,6 +7,7 @@ Terraform module which creates the following resources on **AZURE**:
 ## User Stories for this module
 
 - AAOPS I can easily create a network which contain a vnet and multiple subnets.
+- AAOPS I can easily create a network and export its logs with a Monitor Diagnostic Setting.
 
 ## Usage
 
@@ -27,7 +28,8 @@ module "network" {
 
 ## Examples
 
-- [Creation of a virtual network and 3 subnets](examples/main.tf)
+- [Creation of a virtual network and 3 subnets](examples/basic_network_example/main.tf)
+- [Creation of a virtual network and 3 subnets with logs enabled](examples/network_with_logging/main.tf)
 
 <!-- BEGIN_TF_DOCS -->
 ## Modules
@@ -45,6 +47,10 @@ module "network" {
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | A map of subnets with their CIDR block | `map(string)` | n/a | yes |
 | <a name="input_vnet_address_space"></a> [vnet\_address\_space](#input\_vnet\_address\_space) | The address space that is used the virtual network. You can supply more than one address space. | `list(string)` | n/a | yes |
 | <a name="input_vnet_name"></a> [vnet\_name](#input\_vnet\_name) | The vnet name | `string` | n/a | yes |
+| <a name="input_eventhub_authorization_rule_id"></a> [eventhub\_authorization\_rule\_id](#input\_eventhub\_authorization\_rule\_id) | ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. | `string` | `null` | no |
+| <a name="input_log_analytics_workspace_id"></a> [log\_analytics\_workspace\_id](#input\_log\_analytics\_workspace\_id) | The ID of the log analytics workspace where to export logs. | `string` | `null` | no |
+| <a name="input_logs_enabled"></a> [logs\_enabled](#input\_logs\_enabled) | Should the log export with DiagnosticSetting be enabled ? | `bool` | `false` | no |
+| <a name="input_storage_account_id"></a> [storage\_account\_id](#input\_storage\_account\_id) | The ID of the storage account where to export logs. | `string` | `null` | no |
 
 ## Outputs
 

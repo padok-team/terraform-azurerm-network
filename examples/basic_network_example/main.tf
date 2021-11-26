@@ -20,7 +20,7 @@ module "resource_group" {
 }
 
 module "network" {
-  source = "./.."
+  source = "./../.."
 
   resource_group     = module.resource_group.this
   vnet_name          = "example_vnet"

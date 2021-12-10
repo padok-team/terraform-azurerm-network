@@ -39,13 +39,6 @@ variable "subnets_delegation" {
     })
   }))
   default = null
-
-  validation {
-    condition = var.subnets_delegation == null || can([
-      for o in var.subnets_delegation : can(regex("^(Microsoft.ApiManagement/service|Microsoft.AzureCosmosDB/clusters|Microsoft.BareMetal/AzureVMware|Microsoft.BareMetal/CrayServers|Microsoft.Batch/batchAccounts|Microsoft.ContainerInstance/containerGroups|Microsoft.Databricks/workspaces|Microsoft.DBforMySQL/flexibleServers|Microsoft.DBforMySQL/serversv2|Microsoft.DBforPostgreSQL/flexibleServers|Microsoft.DBforPostgreSQL/serversv2|Microsoft.DBforPostgreSQL/singleServers|Microsoft.HardwareSecurityModules/dedicatedHSMs|Microsoft.Kusto/clusters|Microsoft.Logic/integrationServiceEnvironments|Microsoft.MachineLearningServices/workspaces|Microsoft.Netapp/volumes|Microsoft.Network/managedResolvers|Microsoft.PowerPlatform/vnetaccesslinks|Microsoft.ServiceFabricMesh/networks|Microsoft.Sql/managedInstances|Microsoft.Sql/servers|Microsoft.StreamAnalytics/streamingJobs|Microsoft.Synapse/workspaces|Microsoft.Web/hostingEnvironments|Microsoft.Web/serverFarms)$", o.service_delegation.name))
-    ])
-    error_message = "Please respect the required value given here: <https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet#name>."
-  }
 }
 
 variable "logs_enabled" {

@@ -17,6 +17,8 @@ module "subnet" {
   address_prefixes     = [each.value]
   resource_group_name  = var.resource_group.name
   virtual_network_name = module.virtual_network.this.name
+
+  delegation = var.subnets_delegation
 }
 
 data "azurerm_monitor_diagnostic_categories" "this" {

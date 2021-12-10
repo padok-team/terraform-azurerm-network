@@ -26,6 +26,28 @@ variable "subnets" {
   type        = map(string)
 }
 
+# name =>  A name for this delegation.
+# service_delegation.name => The name of service to delegate to.
+# service_delegation.actions => A list of Actions which should be delegated. This list is specific to the service to delegate to.
+variable "subnets_delegation" {
+  description = "Delegation object to configure on the subnets"
+  type = list(object({
+    name = string
+    service_delegation = object({
+      name    = string
+      actions = list(string)
+    })
+  }))
+  default = null
+
+  validation {
+    condition = var.subnets_delegation == null || can([
+      for o in var.subnets_delegation : can(regex("^(Microsoft.ApiManagement/service|Microsoft.AzureCosmosDB/clusters|Microsoft.BareMetal/AzureVMware|Microsoft.BareMetal/CrayServers|Microsoft.Batch/batchAccounts|Microsoft.ContainerInstance/containerGroups|Microsoft.Databricks/workspaces|Microsoft.DBforMySQL/flexibleServers|Microsoft.DBforMySQL/serversv2|Microsoft.DBforPostgreSQL/flexibleServers|Microsoft.DBforPostgreSQL/serversv2|Microsoft.DBforPostgreSQL/singleServers|Microsoft.HardwareSecurityModules/dedicatedHSMs|Microsoft.Kusto/clusters|Microsoft.Logic/integrationServiceEnvironments|Microsoft.MachineLearningServices/workspaces|Microsoft.Netapp/volumes|Microsoft.Network/managedResolvers|Microsoft.PowerPlatform/vnetaccesslinks|Microsoft.ServiceFabricMesh/networks|Microsoft.Sql/managedInstances|Microsoft.Sql/servers|Microsoft.StreamAnalytics/streamingJobs|Microsoft.Synapse/workspaces|Microsoft.Web/hostingEnvironments|Microsoft.Web/serverFarms)$", o.service_delegation.name))
+    ])
+    error_message = "Please respect the required value given here: <https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet#name>."
+  }
+}
+
 variable "logs_enabled" {
   description = "Should the log export with DiagnosticSetting be enabled ?"
   type        = bool

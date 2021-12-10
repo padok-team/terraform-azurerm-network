@@ -9,6 +9,7 @@ Terraform module which creates the following resources on **AZURE**:
 - AAOPS I can easily create a network which contain a vnet and multiple subnets.
 - AAOPS I can easily create a network with custom DNS servers which contain a vnet and multiple subnets.
 - AAOPS I can easily create a network and export its logs with a Monitor Diagnostic Setting.
+- AAOPS I can easily create a network which contain a vnet and multiple subnets with delegation.
 
 ## Usage
 
@@ -32,6 +33,7 @@ module "network" {
 - [Creation of a virtual network and 3 subnets](examples/basic_network_example/main.tf)
 - [Creation of a virtual network with DNS servers and 3 subnets](examples/network_with_dns/main.tf)
 - [Creation of a virtual network and 3 subnets with logs enabled](examples/network_with_logging/main.tf)
+- [Creation of a virtual network and 3 subnets with delegation](examples/network_with_subnet_delegation/main.tf)
 
 <!-- BEGIN_TF_DOCS -->
 ## Modules

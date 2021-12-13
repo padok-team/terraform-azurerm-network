@@ -26,6 +26,21 @@ variable "subnets" {
   type        = map(string)
 }
 
+# name =>  A name for this delegation.
+# service_delegation.name => The name of service to delegate to.
+# service_delegation.actions => A list of Actions which should be delegated. This list is specific to the service to delegate to.
+variable "subnets_delegation" {
+  description = "Delegation object to configure on the subnets"
+  type = list(object({
+    name = string
+    service_delegation = object({
+      name    = string
+      actions = list(string)
+    })
+  }))
+  default = null
+}
+
 variable "logs_enabled" {
   description = "Should the log export with DiagnosticSetting be enabled ?"
   type        = bool

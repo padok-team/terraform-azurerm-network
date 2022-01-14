@@ -13,26 +13,23 @@ provider "azurerm" {
   features {}
 }
 
-module "resource_group" {
-  source   = "git@github.com:padok-team/terraform-azurerm-resource-group.git?ref=v1.0.0"
+resource "azurerm_resource_group" "example" {
   name     = "example_rg"
   location = "West Europe"
 }
 
-module "log_analytics_workspace" {
-  source = "git@github.com:padok-team/terraform-azurerm-diagnostic-settings.git?ref=v1.0.0"
-
-  resource_group_name     = module.resource_group.this.name
-  resource_group_location = module.resource_group.this.location
-
-  name      = "example-law"
-  resources = [] # We wan to create a log analytics workspace alone
+resource "azurerm_log_analytics_workspace" "example" {
+  name                = "example-law"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+  sku                 = "PerGB2018"
+  retention_in_days   = 30
 }
 
 module "network" {
   source = "./../.."
 
-  resource_group     = module.resource_group.this
+  resource_group     = azurerm_resource_group.example
   vnet_name          = "example_vnet"
   vnet_address_space = ["10.0.0.0/8"]
   subnets = {
@@ -42,5 +39,5 @@ module "network" {
   }
 
   logs_enabled               = true
-  log_analytics_workspace_id = module.log_analytics_workspace.azurerm_log_analytics_workspace_id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.example.id
 }

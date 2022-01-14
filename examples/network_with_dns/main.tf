@@ -13,8 +13,7 @@ provider "azurerm" {
   features {}
 }
 
-module "resource_group" {
-  source   = "git@github.com:padok-team/terraform-azurerm-resource-group.git?ref=v1.0.0"
+resource "azurerm_resource_group" "example" {
   name     = "example_rg"
   location = "West Europe"
 }
@@ -22,7 +21,7 @@ module "resource_group" {
 module "network" {
   source = "./../.."
 
-  resource_group     = module.resource_group.this
+  resource_group     = azurerm_resource_group.example
   vnet_name          = "example_vnet"
   vnet_address_space = ["10.0.0.0/8"]
   dns_servers        = ["1.1.1.1", "8.8.4.4"]

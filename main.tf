@@ -1,5 +1,5 @@
 module "virtual_network" {
-  source = "git@github.com:padok-team/terraform-azurerm-virtual-network.git?ref=v0.0.2"
+  source = "git@github.com:padok-team/terraform-azurerm-virtual-network.git?ref=v1.0.0"
 
   name                = var.vnet_name
   resource_group_name = var.resource_group.name
@@ -11,14 +11,14 @@ module "virtual_network" {
 }
 
 module "subnet" {
-  source               = "git@github.com:padok-team/terraform-azurerm-subnet.git?ref=v0.0.2"
+  source               = "git@github.com:padok-team/terraform-azurerm-subnet.git?ref=v1.0.0"
   for_each             = var.subnets
   name                 = each.key
   address_prefixes     = [each.value]
   resource_group_name  = var.resource_group.name
   virtual_network_name = module.virtual_network.this.name
 
-  delegation = var.subnets_delegation
+  delegations = var.subnets_delegations
 }
 
 data "azurerm_monitor_diagnostic_categories" "this" {

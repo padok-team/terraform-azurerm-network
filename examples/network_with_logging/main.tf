@@ -14,13 +14,13 @@ provider "azurerm" {
 }
 
 module "resource_group" {
-  source   = "git@github.com:padok-team/terraform-azurerm-resource-group.git?ref=v0.0.2"
+  source   = "git@github.com:padok-team/terraform-azurerm-resource-group.git?ref=v1.0.0"
   name     = "example_rg"
   location = "West Europe"
 }
 
 module "log_analytics_workspace" {
-  source = "git@github.com:padok-team/terraform-azurerm-diagnostic-settings.git?ref=v0.0.2"
+  source = "git@github.com:padok-team/terraform-azurerm-diagnostic-settings.git?ref=v1.0.0"
 
   resource_group_name     = module.resource_group.this.name
   resource_group_location = module.resource_group.this.location

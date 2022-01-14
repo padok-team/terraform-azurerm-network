@@ -29,7 +29,7 @@ variable "subnets" {
 # name =>  A name for this delegation.
 # service_delegation.name => The name of service to delegate to.
 # service_delegation.actions => A list of Actions which should be delegated. This list is specific to the service to delegate to.
-variable "subnets_delegation" {
+variable "subnets_delegations" {
   description = "Delegation object to configure on the subnets"
   type = list(object({
     name = string

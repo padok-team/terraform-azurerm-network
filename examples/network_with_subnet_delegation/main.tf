@@ -14,7 +14,7 @@ provider "azurerm" {
 }
 
 module "resource_group" {
-  source   = "git@github.com:padok-team/terraform-azurerm-resource-group.git?ref=v0.0.2"
+  source   = "git@github.com:padok-team/terraform-azurerm-resource-group.git?ref=v1.0.0"
   name     = "example_rg"
   location = "West Europe"
 }
@@ -31,7 +31,7 @@ module "network" {
     "subnet3" = "10.2.0.0/16",
   }
 
-  subnets_delegation = [
+  subnets_delegations = [
     {
       name = "delegation"
       service_delegation = {

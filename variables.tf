@@ -1,5 +1,5 @@
 variable "resource_group" {
-  description = "The resource group resource"
+  description = "The resource group resource."
   type = object({
     name     = string
     location = string
@@ -7,7 +7,7 @@ variable "resource_group" {
 }
 
 variable "vnet_name" {
-  description = "The vnet name"
+  description = "The VNET name"
   type        = string
 }
 variable "vnet_address_space" {
@@ -22,15 +22,15 @@ variable "dns_servers" {
 }
 
 variable "subnets" {
-  description = "A map of subnets with their CIDR block"
+  description = "A map of subnets with their CIDR block."
   type        = map(string)
 }
 
 # name =>  A name for this delegation.
 # service_delegation.name => The name of service to delegate to.
-# service_delegation.actions => A list of Actions which should be delegated. This list is specific to the service to delegate to.
+# service_delegation.actions => A list of actions which should be delegated. This list is specific to the service to delegate to.
 variable "subnets_delegations" {
-  description = "Delegation object to configure on the subnets"
+  description = "Delegation object to configure on the subnets."
   type = list(object({
     name = string
     service_delegation = object({
@@ -42,19 +42,19 @@ variable "subnets_delegations" {
 }
 
 variable "logs_enabled" {
-  description = "Should the log export with DiagnosticSetting be enabled ?"
+  description = "Wether or not to enabled DiagnosticSetting"
   type        = bool
   default     = false
 }
 
 variable "log_analytics_workspace_id" {
-  description = "The ID of the log analytics workspace where to export logs."
+  description = "The ID of the log analytics workspace where the logs will be exported."
   type        = string
   default     = null
 }
 
 variable "storage_account_id" {
-  description = "The ID of the storage account where to export logs."
+  description = "The ID of the storage account where the logs will be exported."
   type        = string
   default     = null
 }

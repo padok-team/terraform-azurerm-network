@@ -15,7 +15,7 @@ Terraform module which creates the following resources on **AZURE**:
 
 ```hcl
 module "network" {
-  source = "git@github.com:padok-team/terraform-azurerm-network.git?ref=v1.0.0"
+  source = "git@github.com:padok-team/terraform-azurerm-network.git?ref=v0.1.0"
 
   resource_group     = "my-rg-name"
   vnet_name          = "example_vnet"

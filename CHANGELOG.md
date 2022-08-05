@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/padok-team/terraform-azurerm-network/compare/v0.1.0...v0.2.0) (2022-08-05)
+
+
+### Features
+
+* **variables:** update subnet delegation variable to configure dynamicaly a subnet ([85ab5da](https://github.com/padok-team/terraform-azurerm-network/commit/85ab5da7d6f186b0e0f8fe23289efbf65aec27fa))
+
 ## [0.1.0](https://github.com/padok-team/terraform-azurerm-network/compare/v1.0.0...v0.1.0) (2022-03-18)
 
 ### Features

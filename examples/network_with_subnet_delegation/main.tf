@@ -30,15 +30,15 @@ module "network" {
     "subnet3" = "10.2.0.0/16",
   }
 
-  subnets_delegations = [
-    {
+  subnets_delegations = {
+    "subnet2" = {
       name = "delegation"
       service_delegation = {
         name    = "Microsoft.Web/serverFarms"
         actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
       }
     }
-  ]
+  }
 
   tags = {
     terraform : "true"

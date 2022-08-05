@@ -24,21 +24,19 @@ variable "dns_servers" {
 variable "subnets" {
   description = "A map of subnets with their CIDR block."
   type        = map(string)
+  default     = {}
 }
 
-# name =>  A name for this delegation.
-# service_delegation.name => The name of service to delegate to.
-# service_delegation.actions => A list of actions which should be delegated. This list is specific to the service to delegate to.
 variable "subnets_delegations" {
-  description = "Delegation object to configure on the subnets."
-  type = list(object({
+  description = "A map of delegations configurations for each subnets keys."
+  type = map(object({
     name = string
     service_delegation = object({
       name    = string
       actions = list(string)
     })
   }))
-  default = null
+  default = {}
 }
 
 variable "logs_enabled" {
@@ -49,18 +47,6 @@ variable "logs_enabled" {
 
 variable "log_analytics_workspace_id" {
   description = "The ID of the log analytics workspace where the logs will be exported."
-  type        = string
-  default     = null
-}
-
-variable "storage_account_id" {
-  description = "The ID of the storage account where the logs will be exported."
-  type        = string
-  default     = null
-}
-
-variable "eventhub_authorization_rule_id" {
-  description = "ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data."
   type        = string
   default     = null
 }

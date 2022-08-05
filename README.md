@@ -1,4 +1,18 @@
 # AZURE NETWORK Terraform module
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [User Stories for this module](#user-stories-for-this-module)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Modules](#modules)
+- [Inputs](#inputs)
+- [Outputs](#outputs)
+- [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 
 Terraform module which creates the following resources on **AZURE**:
 - **virtual_network**
@@ -40,31 +54,28 @@ module "network" {
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_subnet"></a> [subnet](#module\_subnet) | git@github.com:padok-team/terraform-azurerm-subnet.git | v1.0.0 |
-| <a name="module_virtual_network"></a> [virtual\_network](#module\_virtual\_network) | git@github.com:padok-team/terraform-azurerm-virtual-network.git | v1.0.0 |
+| <a name="module_logger"></a> [logger](#module\_logger) | git@github.com:padok-team/terraform-azurerm-logger.git | v0.1.4 |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_resource_group"></a> [resource\_group](#input\_resource\_group) | The resource group resource. | <pre>object({<br>    name     = string<br>    location = string<br>  })</pre> | n/a | yes |
-| <a name="input_subnets"></a> [subnets](#input\_subnets) | A map of subnets with their CIDR block. | `map(string)` | n/a | yes |
 | <a name="input_vnet_address_space"></a> [vnet\_address\_space](#input\_vnet\_address\_space) | The address space that is used the virtual network. You can supply more than one address space. | `list(string)` | n/a | yes |
 | <a name="input_vnet_name"></a> [vnet\_name](#input\_vnet\_name) | The VNET name | `string` | n/a | yes |
 | <a name="input_dns_servers"></a> [dns\_servers](#input\_dns\_servers) | DNS servers associated with the virtual network. | `list(string)` | `null` | no |
-| <a name="input_eventhub_authorization_rule_id"></a> [eventhub\_authorization\_rule\_id](#input\_eventhub\_authorization\_rule\_id) | ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. | `string` | `null` | no |
 | <a name="input_log_analytics_workspace_id"></a> [log\_analytics\_workspace\_id](#input\_log\_analytics\_workspace\_id) | The ID of the log analytics workspace where the logs will be exported. | `string` | `null` | no |
 | <a name="input_logs_enabled"></a> [logs\_enabled](#input\_logs\_enabled) | Wether or not to enabled DiagnosticSetting | `bool` | `false` | no |
-| <a name="input_storage_account_id"></a> [storage\_account\_id](#input\_storage\_account\_id) | The ID of the storage account where the logs will be exported. | `string` | `null` | no |
-| <a name="input_subnets_delegations"></a> [subnets\_delegations](#input\_subnets\_delegations) | Delegation object to configure on the subnets. | <pre>list(object({<br>    name = string<br>    service_delegation = object({<br>      name    = string<br>      actions = list(string)<br>    })<br>  }))</pre> | `null` | no |
+| <a name="input_subnets"></a> [subnets](#input\_subnets) | A map of subnets with their CIDR block. | `map(string)` | `{}` | no |
+| <a name="input_subnets_delegations"></a> [subnets\_delegations](#input\_subnets\_delegations) | A map of delegations configurations for each subnets keys. | <pre>map(object({<br>    name = string<br>    service_delegation = object({<br>      name    = string<br>      actions = list(string)<br>    })<br>  }))</pre> | `{}` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to the resource. | `map(string)` | `null` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_subnets"></a> [subnets](#output\_subnets) | The map of subnets |
-| <a name="output_vnet"></a> [vnet](#output\_vnet) | The vnet resource |
+| <a name="output_subnets"></a> [subnets](#output\_subnets) | A map of subnets. |
+| <a name="output_vnet"></a> [vnet](#output\_vnet) | A virtual network resource instance. |
 <!-- END_TF_DOCS -->
 
 ## License

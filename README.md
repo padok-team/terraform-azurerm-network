@@ -67,7 +67,8 @@ module "network" {
 | <a name="input_log_analytics_workspace_id"></a> [log\_analytics\_workspace\_id](#input\_log\_analytics\_workspace\_id) | The ID of the log analytics workspace where the logs will be exported. | `string` | `null` | no |
 | <a name="input_logs_enabled"></a> [logs\_enabled](#input\_logs\_enabled) | Wether or not to enabled DiagnosticSetting | `bool` | `false` | no |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | A map of subnets with their CIDR block. | `map(string)` | `{}` | no |
-| <a name="input_subnets_delegations"></a> [subnets\_delegations](#input\_subnets\_delegations) | A map of delegations configurations for each subnets keys. | <pre>map(object({<br>    name = string<br>    service_delegation = object({<br>      name    = string<br>      actions = list(string)<br>    })<br>  }))</pre> | `{}` | no |
+| <a name="input_subnets_delegations"></a> [subnets\_delegations](#input\_subnets\_delegations) | A map of delegations configurations for each subnet keys. | <pre>map(object({<br>    name = string<br>    service_delegation = object({<br>      name    = string<br>      actions = list(string)<br>    })<br>  }))</pre> | `{}` | no |
+| <a name="input_subnets_service_endpoints"></a> [subnets\_service\_endpoints](#input\_subnets\_service\_endpoints) | A map of service endpoint list for each subnet keys. | `map(list(string))` | `{}` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to the resource. | `map(string)` | `null` | no |
 
 ## Outputs

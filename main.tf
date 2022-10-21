@@ -20,6 +20,8 @@ resource "azurerm_subnet" "these" {
   virtual_network_name = azurerm_virtual_network.this.name
   address_prefixes     = [each.value]
 
+  service_endpoints = lookup(var.subnets_service_endpoints, each.key, [])
+
   dynamic "delegation" {
     for_each = contains([for k, v in var.subnets_delegations : k], each.key) ? [1] : []
 

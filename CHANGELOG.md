@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/padok-team/terraform-azurerm-network/compare/v0.2.1...v0.3.0) (2022-10-21)
+
+
+### Features
+
+* **subnet:** add service endpoints configuration ([a93f761](https://github.com/padok-team/terraform-azurerm-network/commit/a93f7615c8481d9fb0146d29dcda86154de41e62))
+
 ## [0.2.1](https://github.com/padok-team/terraform-azurerm-network/compare/v0.2.0...v0.2.1) (2022-08-12)
 
 

@@ -38,6 +38,6 @@ module "network" {
     "subnet3" = "10.2.0.0/16",
   }
 
-  logs_enabled               = true
+  enable_logging             = true
   log_analytics_workspace_id = azurerm_log_analytics_workspace.example.id
 }

@@ -45,7 +45,7 @@ variable "subnets_delegations" {
   default = {}
 }
 
-variable "logs_enabled" {
+variable "enable_logging" {
   description = "Wether or not to enabled DiagnosticSetting"
   type        = bool
   default     = false

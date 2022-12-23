@@ -54,7 +54,7 @@ module "network" {
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_logger"></a> [logger](#module\_logger) | git@github.com:padok-team/terraform-azurerm-logger.git | v0.1.4 |
+| <a name="module_logger"></a> [logger](#module\_logger) | git@github.com:padok-team/terraform-azurerm-logger.git | v0.3.0 |
 
 ## Inputs
 
@@ -64,8 +64,8 @@ module "network" {
 | <a name="input_vnet_address_space"></a> [vnet\_address\_space](#input\_vnet\_address\_space) | The address space that is used the virtual network. You can supply more than one address space. | `list(string)` | n/a | yes |
 | <a name="input_vnet_name"></a> [vnet\_name](#input\_vnet\_name) | The VNET name | `string` | n/a | yes |
 | <a name="input_dns_servers"></a> [dns\_servers](#input\_dns\_servers) | DNS servers associated with the virtual network. | `list(string)` | `null` | no |
+| <a name="input_enable_logging"></a> [enable\_logging](#input\_enable\_logging) | Wether or not to enabled DiagnosticSetting | `bool` | `false` | no |
 | <a name="input_log_analytics_workspace_id"></a> [log\_analytics\_workspace\_id](#input\_log\_analytics\_workspace\_id) | The ID of the log analytics workspace where the logs will be exported. | `string` | `null` | no |
-| <a name="input_logs_enabled"></a> [logs\_enabled](#input\_logs\_enabled) | Wether or not to enabled DiagnosticSetting | `bool` | `false` | no |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | A map of subnets with their CIDR block. | `map(string)` | `{}` | no |
 | <a name="input_subnets_delegations"></a> [subnets\_delegations](#input\_subnets\_delegations) | A map of delegations configurations for each subnet keys. | <pre>map(object({<br>    name = string<br>    service_delegation = object({<br>      name    = string<br>      actions = list(string)<br>    })<br>  }))</pre> | `{}` | no |
 | <a name="input_subnets_service_endpoints"></a> [subnets\_service\_endpoints](#input\_subnets\_service\_endpoints) | A map of service endpoint list for each subnet keys. | `map(list(string))` | `{}` | no |

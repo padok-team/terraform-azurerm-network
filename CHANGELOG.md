@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.1](https://github.com/padok-team/terraform-azurerm-network/compare/v0.3.0...v0.3.1) (2022-12-23)
+
+
+### Bug Fixes
+
+* **logger:** update logger version ([fbb1513](https://github.com/padok-team/terraform-azurerm-network/commit/fbb1513734b780eeca232158d8af30a7439b4c98))
+
 ## [0.3.0](https://github.com/padok-team/terraform-azurerm-network/compare/v0.2.1...v0.3.0) (2022-10-21)
 
 

@@ -36,7 +36,7 @@ resource "azurerm_subnet" "these" {
 }
 
 module "logger" {
-  source = "git@github.com:padok-team/terraform-azurerm-logger.git?ref=v0.3.0"
+  source = "git@github.com:padok-team/terraform-azurerm-logger.git?ref=v0.4.0"
   count  = var.enable_logging == true ? 1 : 0
 
   resource_group = var.resource_group

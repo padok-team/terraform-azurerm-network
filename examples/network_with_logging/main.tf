@@ -4,7 +4,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = ">=2.82.0"
+      version = "~> 3"
     }
   }
 }
@@ -13,15 +13,15 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "example" {
+resource "azurerm_resource_group" "this" {
   name     = "example_rg"
   location = "West Europe"
 }
 
-resource "azurerm_log_analytics_workspace" "example" {
+resource "azurerm_log_analytics_workspace" "this" {
   name                = "example-law"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.this.location
+  resource_group_name = azurerm_resource_group.this.name
   sku                 = "PerGB2018"
   retention_in_days   = 30
 }
@@ -29,7 +29,7 @@ resource "azurerm_log_analytics_workspace" "example" {
 module "network" {
   source = "./../.."
 
-  resource_group     = azurerm_resource_group.example
+  resource_group     = azurerm_resource_group.this
   vnet_name          = "example_vnet"
   vnet_address_space = ["10.0.0.0/8"]
   subnets = {
@@ -39,5 +39,5 @@ module "network" {
   }
 
   enable_logging             = true
-  log_analytics_workspace_id = azurerm_log_analytics_workspace.example.id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.this.id
 }
